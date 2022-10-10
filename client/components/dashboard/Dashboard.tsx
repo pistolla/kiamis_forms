@@ -1,12 +1,12 @@
-import React from 'react';
-import { cyan, pink, purple, orange } from '@material-ui/core/colors';
 import { Grid } from '@material-ui/core';
-import { AddShoppingCart, ThumbUp, Assessment, Face } from '@material-ui/icons';
-
-// @ts-expect-error TS(6142): Module './SummaryBox' was resolved to '/media/DATA... Remove this comment to see the full error message
-import SummaryBox from './SummaryBox';
-// @ts-expect-error TS(6142): Module './Product' was resolved to '/media/DATA/HO... Remove this comment to see the full error message
+import { cyan, orange, pink, purple } from '@material-ui/core/colors';
+import { AddShoppingCart, Assessment, Face, ThumbUp } from '@material-ui/icons';
+import React from 'react';
 import Product from './Product';
+import SummaryBox from './SummaryBox';
+
+
+
 
 const products = [
   { id: 1, title: 'Samsung TV', text: 'Samsung 32 1080p 60Hz LED Smart HDTV.' },

@@ -1,17 +1,17 @@
-import React from 'react';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import HelpIcon from '@material-ui/icons/Help';
 import HomeIcon from '@material-ui/icons/Home';
+import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
-import HelpIcon from '@material-ui/icons/Help';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
+import classNames from 'classnames';
+import React from 'react';
 
 const drawerWidth = 250;
 
@@ -173,5 +173,5 @@ const MiniDrawer = (props: MiniDrawerProps) => {
   );
 };
 
-// @ts-expect-error TS(2345): Argument of type '(theme: any) => { drawerPaper: {... Remove this comment to see the full error message
+
 export default withStyles(styles)(MiniDrawer);

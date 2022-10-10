@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux';
-import classNames from 'classnames';
-import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import classNames from 'classnames';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as authService from '../../../services/authService';
+
 
 const drawerWidth = 250;
 
@@ -95,5 +95,5 @@ const mapDispatchToProps = (dispatch: any) => ({
     actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-// @ts-expect-error TS(2345): Argument of type '(theme: any) => { appBar: { posi... Remove this comment to see the full error message
+
 export default connect(null, mapDispatchToProps)(withStyles(styles)(Header))

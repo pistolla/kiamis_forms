@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-
-// Import custom components
-// @ts-expect-error TS(6142): Module '../header/Header' was resolved to '/media/... Remove this comment to see the full error message
-import Header from '../header/Header';
-// @ts-expect-error TS(6142): Module '../drawer/MiniDrawer' was resolved to '/me... Remove this comment to see the full error message
+import React, { useState } from 'react';
 import MiniDrawer from '../drawer/MiniDrawer';
-// @ts-expect-error TS(6142): Module '../footer/Footer' was resolved to '/media/... Remove this comment to see the full error message
 import Footer from '../footer/Footer';
+// Import custom components
+import Header from '../header/Header';
+
+
+
 
 const styles = (theme: any) => ({
   root: {
@@ -66,5 +65,5 @@ const MainLayout = (props: MainLayoutProps) => {
   );
 };
 
-// @ts-expect-error TS(2345): Argument of type '(theme: any) => { root: { width:... Remove this comment to see the full error message
+
 export default withStyles(styles)(MainLayout);

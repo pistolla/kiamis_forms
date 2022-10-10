@@ -1,14 +1,14 @@
+import { blueGrey } from '@material-ui/core/colors';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { ConnectedRouter } from 'connected-react-router';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { blueGrey } from '@material-ui/core/colors';
-
-import store, { history } from './store/configureStore';
-import { verifyToken } from './services/tokenService';
-// @ts-expect-error TS(6142): Module './containers/app/AppContainer' was resolve... Remove this comment to see the full error message
 import App from './containers/app/AppContainer';
+import { verifyToken } from './services/tokenService';
+import store, { history } from './store/configureStore';
+
+
 
 const mountNode = document.getElementById('root');
 
@@ -23,7 +23,7 @@ const theme = createMuiTheme({
 });
 
 // Used to log in if token is valid
-// @ts-expect-error TS(2345): Argument of type '(dispatch: any) => void' is not ... Remove this comment to see the full error message
+
 store.dispatch(verifyToken());
 
 ReactDOM.render(

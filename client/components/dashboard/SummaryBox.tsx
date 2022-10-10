@@ -1,7 +1,7 @@
-import React from 'react';
 import { Card, CardContent, Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
 import { grey } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
 
 const styles = () => ({
   root: {
@@ -72,5 +72,5 @@ const SummaryBox = (props: SummaryBoxProps) => {
   );
 };
 
-// @ts-expect-error TS(2345): Argument of type '() => { root: { padding: string;... Remove this comment to see the full error message
+
 export default withStyles(styles)(SummaryBox);

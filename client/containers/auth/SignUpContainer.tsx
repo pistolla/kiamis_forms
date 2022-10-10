@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
-import { USERS } from '../../constants/entity';
+import { bindActionCreators } from 'redux';
 import * as crudAction from '../../actions/crudAction';
-
 // Import custom components
-// @ts-expect-error TS(6142): Module '../../components/auth/SignUpForm' was reso... Remove this comment to see the full error message
 import SignUpForm from '../../components/auth/SignUpForm';
+import { USERS } from '../../constants/entity';
+
+
 
 class SignUpContainer extends Component {
   constructor(props: any) {

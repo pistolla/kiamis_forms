@@ -1,15 +1,14 @@
-import React from 'react';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
-import { Link } from 'react-router-dom';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'redu... Remove this comment to see the full error message
-import { Field, reduxForm } from 'redux-form';
-import { withStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardContent, CardHeader } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-
+import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 // Import custom components
-// @ts-expect-error TS(6142): Module '../common/form/renderText' was resolved to... Remove this comment to see the full error message
 import renderText from '../common/form/renderText';
+
+
+
 
 const styles = {
   root: {
@@ -112,5 +111,5 @@ const validateSignUp = (values: any) => {
 export default reduxForm({
   form: 'SignUpForm', // a unique identifier for this form
   validate: validateSignUp, // ←Callback function for client-side validation
-// @ts-expect-error TS(2345): Argument of type '{ root: { minWidth: number; maxW... Remove this comment to see the full error message
+
 })(withStyles(styles)(SignUpForm));

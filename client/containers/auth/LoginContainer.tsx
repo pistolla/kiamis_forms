@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
+// Import custom components
+import LoginForm from '../../components/auth/LoginForm';
 import * as authService from '../../services/authService';
 
-// Import custom components
-// @ts-expect-error TS(6142): Module '../../components/auth/LoginForm' was resol... Remove this comment to see the full error message
-import LoginForm from '../../components/auth/LoginForm';
+
 
 class LoginContainer extends Component {
   constructor(props: any) {

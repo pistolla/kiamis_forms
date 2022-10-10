@@ -1,5 +1,5 @@
-import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
 
 const styles = () => ({
   legal: {
@@ -32,5 +32,5 @@ const Footer = (props: FooterProps) => {
   );
 };
 
-// @ts-expect-error TS(2345): Argument of type '() => { legal: { backgroundColor... Remove this comment to see the full error message
+
 export default withStyles(styles)(Footer);

@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
-import {connectRouter} from 'connected-react-router';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'redu... Remove this comment to see the full error message
-import {reducer as formReducer} from 'redux-form';
-
+import { connectRouter } from 'connected-react-router';
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 // Import custom components
 import authReducer from './authReducer';
+
+
 
 const appReducer = (history: any) => combineReducers({
     router: connectRouter(history),
