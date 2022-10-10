@@ -3,10 +3,10 @@ import jwtDecode from 'jwt-decode';
 import { getLocalStorage } from './storageUtil';
 import { JWT_TOKEN } from '../config/config';
 
-export let isTokenExpired = (token) => {
+export let isTokenExpired = (token: any) => {
   try {
     const decoded = jwtDecode(token);
-    if (decoded.exp < Date.now() / 1000) {
+    if ((decoded as any).exp < Date.now() / 1000) {
       // Checking if token is expired.
       return true;
     }

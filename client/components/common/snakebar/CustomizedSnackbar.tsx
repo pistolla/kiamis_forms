@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
@@ -17,55 +16,64 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const styles = (theme) => ({
+const styles = (theme: any) => ({
   success: {
     backgroundColor: green[600],
   },
+
   error: {
     backgroundColor: theme.palette.error.dark,
   },
+
   info: {
     backgroundColor: theme.palette.primary.dark,
   },
+
   warning: {
     backgroundColor: amber[700],
   },
+
   icon: {
     fontSize: 20,
   },
+
   iconVariant: {
     opacity: 0.9,
     marginRight: theme.spacing.unit,
   },
+
   message: {
     display: 'flex',
     alignItems: 'center',
-  },
+  }
 });
 
-const CustomizedSnackbar = (props) => {
+type CustomizedSnackbarProps = {
+    classes: any;
+    className?: string;
+    message?: React.ReactNode;
+    variant: 'success' | 'warning' | 'error' | 'info';
+};
+
+const CustomizedSnackbar = (props: CustomizedSnackbarProps) => {
   const { classes, className, message, variant } = props;
   const Icon = variantIcon[variant];
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <SnackbarContent
       className={classNames(classes[variant], className)}
       aria-describedby="client-snackbar"
       message={
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <span id="client-snackbar" className={classes.message}>
+          {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <Icon className={classNames(classes.icon, classes.iconVariant)} />
           {message}
         </span>
       }
     />
   );
-};
-
-CustomizedSnackbar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  message: PropTypes.node,
-  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
 };
 
 export default withStyles(styles)(CustomizedSnackbar);

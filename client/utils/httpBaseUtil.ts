@@ -27,7 +27,8 @@ export const httpBase = () => {
         if (500 === error.response.status) {
             // redirect to 500 page
         }
-        return Promise.reject(error);
+        
+return Promise.reject(error);
 
     });
 

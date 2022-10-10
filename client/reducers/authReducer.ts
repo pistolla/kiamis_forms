@@ -13,7 +13,7 @@ var initialState = {
 /**
  * A reducer takes two arguments, the current state and an action.
  */
-const authReducer = (state, action) => {
+const authReducer = (state: any, action: any) => {
     state = state || initialState;
 
     switch (action.type) {

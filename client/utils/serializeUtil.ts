@@ -1,4 +1,4 @@
-export function getQueryParam(data) {
+export function getQueryParam(data: any) {
     if (typeof(data) !== 'object') {
         return '?' + data;
     }
@@ -8,14 +8,16 @@ export function getQueryParam(data) {
             str.push(encodeURIComponent(p) + '=' + encodeURIComponent(data[p]));
         }
     }
-    return '?' + str.join('&');
+    
+return '?' + str.join('&');
 }
 
-export function getPathParam(...args) {
+export function getPathParam(...args: any[]) {
     var params = [];
 
     for (var a in args) {
         params.push(args[a]);
     }
-    return params.join('/');
+    
+return params.join('/');
 }

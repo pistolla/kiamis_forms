@@ -7,14 +7,14 @@ import {
     SIGN_UP_FAILURE
 } from '../constants/actionType';
 
-export const loginSuccess = (data) => {
+export const loginSuccess = (data: any) => {
     return {
         type: LOG_IN_SUCCESS,
         data
     };
 };
 
-export const loginFailure = (error) => {
+export const loginFailure = (error: any) => {
     return {
         type: LOG_IN_FAILURE,
         error
@@ -27,14 +27,14 @@ export const logoutSuccess = () => {
     };
 };
 
-export const signupSuccess = (data) => {
+export const signupSuccess = (data: any) => {
     return {
         type: SIGN_UP_SUCCESS,
         data
     };
 };
 
-export const signupFailure = (error) => {
+export const signupFailure = (error: any) => {
     return {
         type: SIGN_UP_FAILURE,
         error

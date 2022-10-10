@@ -19,8 +19,8 @@ import * as httpService from '../services/httpService';
  */
 
 
-export const fetchAll = (entity) => {
-    return dispatch => {
+export const fetchAll = (entity: any) => {
+    return (dispatch: any) => {
         return httpService.fetchEntity(entity).then((response) => {
             dispatch(commonAction.fetch(entity, response.data));
         })
@@ -30,8 +30,8 @@ export const fetchAll = (entity) => {
     };
 };
 
-export const fetchById = (entity, id) => {
-    return dispatch => {
+export const fetchById = (entity: any, id: any) => {
+    return (dispatch: any) => {
         return httpService.fetchEntityById(entity, id).then((response) => {
             dispatch(commonAction.selectItem(entity, response.data));
         })
@@ -41,8 +41,8 @@ export const fetchById = (entity, id) => {
     };
 };
 
-export const storeItem = (entity, data) => {
-    return dispatch => {
+export const storeItem = (entity: any, data: any) => {
+    return (dispatch: any) => {
         return httpService.storeEntity(entity, data).then((response) => {
             history.goBack();
         })
@@ -52,8 +52,8 @@ export const storeItem = (entity, data) => {
     };
 };
 
-export const updateItem = (entity, data, id) => {
-    return dispatch => {
+export const updateItem = (entity: any, data: any, id: any) => {
+    return (dispatch: any) => {
         return httpService.updateEntity(entity, data, id).then((response) => {
             history.goBack();
         })
@@ -63,9 +63,10 @@ export const updateItem = (entity, data, id) => {
     };
 };
 
-export const destroyItem = (entity, id, data) => {
-    return dispatch => {
+export const destroyItem = (entity: any, id: any, data: any) => {
+    return (dispatch: any) => {
         return httpService.destroyEntity(entity, id).then((response) => {
+            // @ts-expect-error TS(2554): Expected 1 arguments, but got 2.
             dispatch(fetchAll(entity, data));
         })
             .catch((error) => {
@@ -74,8 +75,8 @@ export const destroyItem = (entity, id, data) => {
     };
 };
 
-export const submitForm = (entity, data, id) => {
-    return dispatch => {
+export const submitForm = (entity: any, data: any, id: any) => {
+    return (dispatch: any) => {
         if (id) {
             dispatch(updateItem(entity, data, id));
         } else {

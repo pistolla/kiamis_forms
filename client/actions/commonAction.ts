@@ -9,14 +9,14 @@ import {
 
 } from '../constants/actionType';
 
-export const failure = (error) => {
+export const failure = (error: any) => {
     return {
         type: ENTITY_FAILURE,
         error: error
     };
 };
 
-export const add = (entity, data) => {
+export const add = (entity: any, data: any) => {
     return {
         type: ENTITY_CREATE,
         entity: entity,
@@ -24,7 +24,7 @@ export const add = (entity, data) => {
     };
 };
 
-export const update = (entity, data) => {
+export const update = (entity: any, data: any) => {
     return {
         type: ENTITY_UPDATE,
         entity: entity,
@@ -32,7 +32,7 @@ export const update = (entity, data) => {
     };
 };
 
-export const fetch = (entity, data) => {
+export const fetch = (entity: any, data: any) => {
     return {
         type: ENTITY_FETCH,
         entity: entity,
@@ -40,7 +40,7 @@ export const fetch = (entity, data) => {
     };
 };
 
-export const destroy = (entity, id) => {
+export const destroy = (entity: any, id: any) => {
     return {
         type: ENTITY_DELETE,
         entity: entity,
@@ -48,7 +48,7 @@ export const destroy = (entity, id) => {
     };
 };
 
-export const selectItem = (entity, data) => {
+export const selectItem = (entity: any, data: any) => {
     return {
         type: SELECT_ENTITY_ITEM,
         entity: entity,
@@ -56,7 +56,7 @@ export const selectItem = (entity, data) => {
     };
 };
 
-export const clearList = (entity) => {
+export const clearList = (entity: any) => {
     return {
         type: CLEAR_ENTITY_LIST,
         entity: entity

@@ -1,8 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
-const renderText = ({ input, label, type, meta: { touched, error, invalid } }) => (
+type Props = {
+    input: any;
+    label: string;
+    meta?: any;
+};
+
+// @ts-expect-error TS(2339): Property 'type' does not exist on type 'Props'.
+const renderText = ({ input, label, type, meta: { touched, error, invalid } }: Props) => (
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   <TextField
     type={type}
     label={label}
@@ -13,11 +20,5 @@ const renderText = ({ input, label, type, meta: { touched, error, invalid } }) =
     {...input}
   />
 );
-
-renderText.propTypes = {
-  input: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
-  meta: PropTypes.object,
-};
 
 export default renderText;

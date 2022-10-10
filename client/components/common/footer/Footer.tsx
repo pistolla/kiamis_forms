@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
@@ -14,20 +13,24 @@ const styles = () => ({
     textAlign: 'center',
   },
 });
-const Footer = (props) => {
+
+type FooterProps = {
+    classes: any;
+};
+const Footer = (props: FooterProps) => {
   const { classes } = props;
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className={classes.legal}>
+      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <div className="copyright">
+        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         © 2016 - 2017 <a href="https://github.com/Bikranshu">Krishna Prasad Timilsina</a>
       </div>
     </div>
   );
 };
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
+// @ts-expect-error TS(2345): Argument of type '() => { legal: { backgroundColor... Remove this comment to see the full error message
 export default withStyles(styles)(Footer);
