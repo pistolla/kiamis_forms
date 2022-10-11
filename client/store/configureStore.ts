@@ -1,5 +1,5 @@
 import { routerMiddleware } from 'connected-react-router';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
 import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import createRootReducer from '../reducers';
@@ -12,7 +12,7 @@ export { history };
 const middlewares = [thunkMiddleware, logger, routerMiddleware(history)];
 
 
-const store = createStore(createRootReducer(history), {}, compose(
+const store = createStore(createRootReducer({...history}), {}, compose(
     applyMiddleware(...middlewares)
     )
 );

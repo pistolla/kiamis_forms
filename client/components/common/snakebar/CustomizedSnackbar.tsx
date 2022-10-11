@@ -7,7 +7,7 @@ import green from '@material-ui/core/colors/green';
 import amber from '@material-ui/core/colors/amber';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, withStyles } from '@material-ui/core/styles';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -16,7 +16,7 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const styles = (theme: any) => ({
+const styles = (theme: any) => createStyles({
   success: {
     backgroundColor: green[600],
   },
@@ -60,14 +60,11 @@ const CustomizedSnackbar = (props: CustomizedSnackbarProps) => {
   const Icon = variantIcon[variant];
 
   return (
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <SnackbarContent
       className={classNames(classes[variant], className)}
       aria-describedby="client-snackbar"
       message={
-        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <span id="client-snackbar" className={classes.message}>
-          {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <Icon className={classNames(classes.icon, classes.iconVariant)} />
           {message}
         </span>

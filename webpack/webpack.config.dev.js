@@ -31,6 +31,11 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                use: 'ts-loader',
+                exclude: /(node_modules)/,
+            },
+            {
                 test: /\.(js|jsx)$/, //check for all js files
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
@@ -47,6 +52,7 @@ const config = {
         ]
     },
     resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
         alias: {
             'react-dom': '@hot-loader/react-dom'
         }

@@ -22,5 +22,9 @@
     "moduleResolution": "node",
     "isolatedModules": true,
     "noEmit": true
-  }
+  },
+  "include": [
+    "client"
+  ],
+  "exclude": ["client/main.tsx"]
 }

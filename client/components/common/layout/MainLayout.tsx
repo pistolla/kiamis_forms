@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createStyles } from '@material-ui/core/styles';
 import React, { useState } from 'react';
 import MiniDrawer from '../drawer/MiniDrawer';
 import Footer from '../footer/Footer';
@@ -8,7 +8,7 @@ import Header from '../header/Header';
 
 
 
-const styles = (theme: any) => ({
+const styles = (theme: any) => createStyles({
   root: {
     width: '100%',
     height: 'auto',
@@ -48,18 +48,12 @@ const MainLayout = (props: MainLayoutProps) => {
   const handleToggle = () => setOpen(!open);
 
   return (
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className={classes.root}>
-      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <div className={classes.appFrame}>
-        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
-        <Header navDrawerOpen={open} handleToggleDrawer={handleToggle} />
-        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+        <Header title="KIAMIS FORMS" navDrawerOpen={open} handleToggleDrawer={handleToggle} />
         <MiniDrawer navDrawerOpen={open} />
-        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <main className={classes.content}>{children}</main>
       </div>
-      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <Footer />
     </div>
   );

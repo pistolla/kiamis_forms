@@ -1,7 +1,7 @@
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, withStyles } from '@material-ui/core/styles';
 import React from 'react';
 
-const styles = () => ({
+const styles = () => createStyles({
   legal: {
     backgroundColor: '#fff',
     position: 'static',
@@ -21,12 +21,8 @@ const Footer = (props: FooterProps) => {
   const { classes } = props;
 
   return (
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className={classes.legal}>
-      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
-      <div className="copyright">
-        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
-        © 2016 - 2017 <a href="https://github.com/Bikranshu">Krishna Prasad Timilsina</a>
+      <div className="copyright">© 2014 - 2022 <a href="https://github.com/pistolla">Josef kamau</a>
       </div>
     </div>
   );

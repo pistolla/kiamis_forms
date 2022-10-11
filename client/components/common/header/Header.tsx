@@ -1,7 +1,7 @@
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,7 +14,7 @@ import * as authService from '../../../services/authService';
 
 const drawerWidth = 250;
 
-const styles = (theme: any) => ({
+const styles = (theme: any) => createStyles({
     appBar: {
         position: 'absolute',
         zIndex: theme.zIndex.navDrawer + 1,
@@ -47,7 +47,10 @@ const styles = (theme: any) => ({
 });
 
 type HeaderProps = {
+    title: string;
     classes: any;
+    navDrawerOpen?: any;
+    handleToggleDrawer?: any;
 };
 
 class Header extends Component<HeaderProps> {
@@ -59,27 +62,19 @@ class Header extends Component<HeaderProps> {
     }
 
     render() {
-        // @ts-expect-error TS(2339): Property 'navDrawerOpen' does not exist on type 'R... Remove this comment to see the full error message
-        const {classes, navDrawerOpen, handleToggleDrawer} = this.props;
+        const {title, classes, navDrawerOpen, handleToggleDrawer} = this.props;
 
         return (
-            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div>
-                {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                 <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
-                    {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                     <Toolbar>
-                        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                         <IconButton aria-label="Menu" onClick={handleToggleDrawer}
                                     className={classNames(!navDrawerOpen && classes.menuButton, navDrawerOpen && classes.menuButtonShift)}>
-                            {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                             <MenuIcon />
                         </IconButton>
-                        {/* @ts-expect-error TS(2769): No overload matches this call. */}
                         <Typography type="title" color="inherit" className={classes.flex}>
-
+                            {{title}}
                         </Typography>
-                        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
                         <Button onClick={this.logOut.bind(this)}>Logout</Button>
                     </Toolbar>
                 </AppBar>
