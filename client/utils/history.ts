@@ -1,6 +1,6 @@
 
-import { createBrowserHistory as createHistory } from 'history';
+const { createBrowserHistory, History } = require('history');
 
 // a singleton history object
-const history = createHistory();
+const history: History = createBrowserHistory();
 export default history;

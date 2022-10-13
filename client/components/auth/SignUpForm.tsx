@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { createStyles, WithStyles, withStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 // Import custom components
 import renderText from '../common/form/renderText';
 
@@ -37,12 +37,12 @@ const styles = createStyles({
 });
 
 type SignUpFormProps = {
-    onSubmit: (...args: any[]) => any;
+    onSubmit?: (...args: any[]) => any;
     handleSubmit: (...args: any[]) => any;
     classes: any;
-} & WithStyles<typeof styles>;
+} & InjectedFormProps & WithStyles<typeof styles>;
 
-const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
+const SignUpForm = (props: SignUpFormProps) => {
   const { handleSubmit, onSubmit, classes } = props;
 
   return (
@@ -92,6 +92,5 @@ const validateSignUp: any = (values: any) => {
 
 export default reduxForm({
   form: 'SignUpForm', // a unique identifier for this form
-  validate: validateSignUp, // ←Callback function for client-side validation
-
+  validate: validateSignUp // ←Callback function for client-side validation
 })(withStyles(styles)(SignUpForm));

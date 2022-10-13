@@ -12,14 +12,13 @@ const appReducer = (history: any) => combineReducers({
     auth: authReducer,
 });
 
-const rootReducer = (state: any, action: any) => {
+const rootReducer = (history: History) => {
 
-    if (action === 'LOG_OUT_SUCCESS') {
-        state = undefined;
-    }
+    // if (action === 'LOG_OUT_SUCCESS') {
+    //     state = undefined;
+    // }
 
-    // @ts-expect-error TS(2554): Expected 1 arguments, but got 2.
-    return appReducer(state, action);
+    return appReducer(history);
 };
 
 export default rootReducer;

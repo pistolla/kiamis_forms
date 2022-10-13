@@ -12,7 +12,7 @@ export { history };
 const middlewares = [thunkMiddleware, logger, routerMiddleware(history)];
 
 
-const store = createStore(createRootReducer({...history}), {}, compose(
+const store = createStore(createRootReducer(history), {}, compose(
     applyMiddleware(...middlewares)
     )
 );

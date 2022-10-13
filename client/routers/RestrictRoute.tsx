@@ -2,10 +2,14 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { isAuthenticated } from '../utils/jwtUtil';
 
+type Props = {
+    component: React.ElementType,
+    exact: boolean,
+    path: string
+}
 
 
-
-const RestrictRoute = ({ component: Component, ...rest }) => (
+const RestrictRoute = ({ component: Component, ...rest }: Props) => (
     
     <Route
         {...rest}

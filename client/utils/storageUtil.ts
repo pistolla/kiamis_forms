@@ -18,9 +18,8 @@ export let setLocalStorage = (key: any, value: any) => {
  * @param {string} key
  */
 export let getLocalStorage = (key: any) => {
-    const data = localStorage.getItem(key);
+    const data: any= localStorage.getItem(key);
     try {
-        // @ts-expect-error TS(2345): Argument of type 'string | null' is not assignable... Remove this comment to see the full error message
         return JSON.parse(data); // converts a JSON string into a Javascript Object
     } catch (e) {
         return data;

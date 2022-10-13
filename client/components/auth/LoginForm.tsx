@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { WithStyles, withStyles } from '@material-ui/core/styles';
+import { createStyles, WithStyles, withStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 // Import custom components
 import renderText from '../common/form/renderText';
 import CustomizedSnackbar from '../common/snakebar/CustomizedSnackbar';
@@ -35,11 +35,11 @@ const styles = createStyles({
 });
 
 type LoginFormProps = {
-    onSubmit: (...args: any[]) => any;
+    onSubmit?: (...args: any[]) => any;
     classes: any;
-    errorMessage: any;
+    errorMessage?: any;
     handleSubmit: (...args: any[]) => any;
-};
+} & InjectedFormProps & WithStyles<typeof styles>;
 
 const LoginForm = (props: LoginFormProps) => {
   const { handleSubmit, onSubmit, classes, errorMessage } = props;
@@ -72,13 +72,14 @@ const LoginForm = (props: LoginFormProps) => {
   );
 };
 
-const validateLogin = (values: any) => {
-  const errors = {};
+const validateLogin: any= (values: any) => {
+  const errors: {
+    [key: string]: any
+  } = {};
 
   const requiredFields = ['email', 'password'];
   requiredFields.forEach((field) => {
     if (!values[field]) {
-      // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       errors[field] = '(The ' + field + ' field is required.)';
     }
   });
