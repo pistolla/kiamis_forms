@@ -6,7 +6,7 @@ type Props = {
     component: React.ElementType,
     exact: boolean,
     path: string
-}
+};
 
 
 const RestrictRoute = ({ component: Component, ...rest }: Props) => (

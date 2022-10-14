@@ -7,7 +7,7 @@ type Props = {
   layout: React.ElementType,
   exact: boolean,
   path: string
-}
+};
 
 
 const PrivateRoute = ({ component: Component, layout: Layout, ...rest }: Props) => (
@@ -23,7 +23,7 @@ const PrivateRoute = ({ component: Component, layout: Layout, ...rest }: Props) 
       
       <Redirect
         to={{
-          pathname: '/',
+          pathname: '/login',
           state: { from: props.location },
         }}
       />

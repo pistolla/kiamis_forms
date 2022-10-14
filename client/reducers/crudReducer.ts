@@ -44,7 +44,7 @@ return newState;
 return newState;
 
     case SELECT_ENTITY_ITEM:
-      newState.selectedItem[action.entity] = Object.assign({}, state, action.data);
+      // newState.selectedItem[action.entity] = Object.assign({}, state, action.data);
       
 return newState;
 

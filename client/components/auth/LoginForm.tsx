@@ -93,5 +93,4 @@ const validateLogin: any= (values: any) => {
 export default reduxForm({
   form: 'LoginForm', // a unique identifier for this form
   validate: validateLogin, // ←Callback function for client-side validation
-
 })(withStyles(styles)(LoginForm));

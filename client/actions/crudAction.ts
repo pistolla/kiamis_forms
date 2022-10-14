@@ -44,7 +44,7 @@ export const fetchById = (entity: any, id: any) => {
 export const storeItem = (entity: any, data: any) => {
     return (dispatch: any) => {
         return httpService.storeEntity(entity, data).then((response) => {
-            history.goBack();
+            history.back();
         })
             .catch((error) => {
                 dispatch(commonAction.failure(error));
@@ -55,7 +55,7 @@ export const storeItem = (entity: any, data: any) => {
 export const updateItem = (entity: any, data: any, id: any) => {
     return (dispatch: any) => {
         return httpService.updateEntity(entity, data, id).then((response) => {
-            history.goBack();
+            history.back();
         })
             .catch((error) => {
                 dispatch(commonAction.failure(error));

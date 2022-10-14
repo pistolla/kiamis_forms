@@ -5,8 +5,10 @@ import MainLayout from '../components/common/layout/MainLayout';
 import NotFound from '../components/error/NotFound';
 // Import custom components
 import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 import RestrictRoute from './RestrictRoute';
 
+const AsyncHomePage = loadable(() => import('../containers/home/HomeContainer'));
 
 const AsyncLoginForm = loadable(() => import('../containers/auth/LoginContainer'));
 
@@ -17,7 +19,8 @@ const AsyncDashboard = loadable(() => import('../containers/dashboard/DashboardC
 const Router = () => (
   <Fragment>
     <Switch>
-      <RestrictRoute exact path="/" component={AsyncLoginForm} />
+      <PublicRoute exact path="/" component={AsyncHomePage} />
+      <RestrictRoute exact path="/login" component={AsyncLoginForm} />
       <RestrictRoute exact path="/signup" component={AsyncSignUpForm} />
       <PrivateRoute exact path="/dashboard" layout={MainLayout} component={AsyncDashboard} />
       <Route component={NotFound} />

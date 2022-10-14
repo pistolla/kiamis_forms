@@ -8,10 +8,12 @@ import * as authService from '../../services/authService';
 
 
 class LoginContainer extends Component {
+  message?: any = "";
   constructor(props: any) {
     super(props);
 
     this.submitForm = this.submitForm.bind(this);
+    this.message = (this.props as any).errorMessage
   }
 
   /**
@@ -24,7 +26,7 @@ class LoginContainer extends Component {
   }
 
   render() {
-    return <LoginForm onSubmit={this.submitForm} errorMessage={(this.props as any).errorMessage}/>;
+    return <LoginForm onSubmit={this.submitForm} />;
   }
 }
 

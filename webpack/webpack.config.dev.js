@@ -14,7 +14,7 @@ const config = {
     entry: {
         app: [
             'webpack-hot-middleware/client', // bundle the client for hot reloading
-            './main.js'  // the entry point of app
+            './main.tsx'  // the entry point of app
         ]
     },
     mode: 'development',
@@ -31,28 +31,51 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)$/,
-                use: 'ts-loader',
-                exclude: /(node_modules)/,
+                test: /\.mjs$/,
+                include: /node_modules/,
+                type: 'javascript/auto'
             },
             {
-                test: /\.(js|jsx)$/, //check for all js files
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
+                                javascriptEnabled: true
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(ts|tsx)$/, //check for all js files
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 options: {
                     babelrc: false,
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
                     // This is a feature of `babel-loader` for webpack (not Babel itself).
                     // It enables caching results in ./node_modules/.cache/babel-loader/
                     // directory for faster rebuilds.
                     cacheDirectory: true,
-                    plugins: ['react-hot-loader/babel', '@babel/plugin-proposal-function-bind', '@babel/plugin-proposal-class-properties'],
+                    plugins: ['react-hot-loader/babel', '@babel/plugin-proposal-function-bind', '@babel/plugin-proposal-class-properties', '@emotion', ["import", {
+                        "libraryName": "antd",
+                        "libraryDirectory": "es",
+                        "style": true
+                    }]],
                 },
             }
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js', '.mjs', '.json','.css'],
         alias: {
             'react-dom': '@hot-loader/react-dom'
         }

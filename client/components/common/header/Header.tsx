@@ -72,8 +72,8 @@ class Header extends Component<HeaderProps> {
                                     className={classNames(!navDrawerOpen && classes.menuButton, navDrawerOpen && classes.menuButtonShift)}>
                             <MenuIcon />
                         </IconButton>
-                        <Typography type="title" color="inherit" className={classes.flex}>
-                            {{title}}
+                        <Typography variant="h1" color="inherit" className={classes.flex} component="h2">
+                            {title}
                         </Typography>
                         <Button onClick={this.logOut.bind(this)}>Logout</Button>
                     </Toolbar>
